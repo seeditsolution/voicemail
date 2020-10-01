@@ -1,0 +1,36 @@
+const moment = require('moment');
+const { google } = require('googleapis');
+exports.handler = function(context, event, callback) {
+    const cal = google.calendar({
+        version: 'v3',
+        auth: context.GOOGLE_API_KEY
+    });
+
+  cal.freebusy.query({
+        resource: {
+            timeMin: moment().toISOString(), 
+            timeMax: moment().add(10,'minutes').toISOString(),
+            items: [{ id: context.GOOGLE_CALENDAR_ID }]
+        }
+    })
+.then((result) => {
+        const busy = result.data.calendars[calendar].busy;
+        if (busy.length !== 0) {
+                //Say I am unavailable
+                let twiml = new Twilio.twiml.VoiceResponse();
+                twiml.say("Sorry, Nathaniel is unavailable right now. If you leave a message he will get back to you as soon as possible.");
+                twiml.record({
+                             timeout: 10,
+                             recordingStatusCallback: '/voicemail',
+                             recordingStatusCallbackEvent: 'completed'
+                 });
+                callback(null, twiml);
+        } else {
+            // Forward to mobile
+           let twiml = new Twilio.twiml.VoiceResponse();
+                 twiml.dial(context.MOBILE_NUMBER);
+                 callback(null, twiml);
+        }
+    }) 
+} 
+         

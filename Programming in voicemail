@@ -1,0 +1,19 @@
+Group Call Distribution (#206)
+Here's a good example of a feature that is necessary when programming your voice mail but is not apparent based on it's name. This program is used to assign the lines that need to be answered by the voice mail which is hunt group 7
+
+VMS Hunt Schedule (#507)
+Use this feature to determine whether the outside lines assigned to Hunt Group 7 hunt through the VMS Hunt Group all the time, only during Day operation (Night Service is off), or only during Night operation (Night Service is on). This feature affects only the Automated Attendant service of the voice messaging system. You can program VMS Hunt Schedule on a per-line basis.
+VMS Hunt Delay (#506)
+Use this feature to determine when outside calls should be answered by the Automated Attendant of the voice messaging system. You can set the system for any number of rings, 0–6. Assigning more rings gives the operator an opportunity to answer calls before they go to the Automated Attendant. VMS Hunt Delay is programmable on a per-line basis. In addition, you can program this feature so that calls can be handled one way during the day and a different way when the system is in Night Service.
+
+Automatic VMS Cover (#310)
+Use this feature to automatically route an extension’s unanswered intercom and transferred calls to the voice mail g system after a specified number of rings (factory setting for all system extensions is three rings), so callers can leave a message.
+
+VMS Cover Rings (#321)
+Use this feature to define the number of times a call rings before it is sent to a user’s voice mailbox. This feature programs the number of rings on a per-extension basis.
+
+Night Service Button (#503)
+Use this feature to program a button on the system telephone at extension 10 to turn Night Service on and off. This button will toggle the system between Day and Night mode which will determine how quickly or when the voice mail auto attendant will answer based on the programming of #506 and #507.
+
+Line Coverage Extension (#208)
+Use this feature to identify an extension as the “owner” of a specific outside line, this will allow that line to forward to the extensions voicemail if not answered by the number of rings programed using #321. If you use this feature then you don't want to program this line using #206 and in fact you need to remove the line from #206 if it was previously programmed in order to have this feature work properly.

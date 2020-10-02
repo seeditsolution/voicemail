@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <style> 
+            nav a { 
+                display: inline-block; 
+                margin-right:-4px; 
+                background: green; 
+                color:white; 
+                font-weight:bold; 
+                text-decoration:none; 
+            } 
+            h1 { 
+                color:green; 
+            } 
+            body { 
+                text-align:center; 
+            } 
+        </style> 
+    </head> 
+    <body> 
+        <h1>GeeksforGeeks</h1> 
+        <h2>margin-right:-4px;</h2> 
+        <nav> 
+            <a href="#"> geeks </a> 
+            <a href="#"> for </a> 
+            <a href="#"> geeks </a> 
+        </nav> 
+    </body> 
+</html> 

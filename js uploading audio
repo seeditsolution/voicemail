@@ -1,0 +1,32 @@
+$(".audio_update_button").click(function() 
+    {
+        var updateval = $("#update_audio").val();
+        var X=$('.preview_audio_photo').attr('id');
+        var Y=$('.preview').attr('id');
+        //var Z= X+','+Y+','+uploadvalues;
+        var Z= X+','+Y;
+        var dataString = 'update_audio='+ updateval+'&uploads='+Z;
+        $("#flash").show();
+        $("#flash").fadeIn(400).html('Loading..');
+        $.ajax(
+        {
+            type: "POST",
+            url: $.base_url+"ajax.php",
+            data: dataString,
+            cache: false,
+            success: function(html)
+            {
+                $("#flash").fadeOut('fast');
+                $("#content").prepend(html);
+                $("#update_audio").val('').focus(); 
+                $('#preview_audio_photo').html('');
+                $('#preview').html('');
+                $('#uploadvalues').val('');
+                $('#uploadvalues_audio2').val('');
+                $('#audiophoto').val('');
+                $('#audioaud').val('');
+                var c=$('#update_count').html();
+                $('#update_count').html(parseInt(c)+1);
+            }
+        });
+    });

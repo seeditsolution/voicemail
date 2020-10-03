@@ -1,0 +1,30 @@
+Voicemail is a voice message that a caller leaves when the person called is absent or is busy with another conversation. Learn about the typical voicemail features and how visual voicemail works. Then, set up voicemail on your mobile device.
+
+The voicemail feature acts similar to an answering machine. However, the main difference is that instead of storing the voice message on the answering machine, it is stored on the service provider's server, in a space reserved for the user called a mailbox.
+
+Voicemail is a voice message that a caller leaves when the person called is absent or is busy with another conversation. Learn about the typical voicemail features and how visual voicemail works. Then, set up voicemail on your mobile device.
+
+The instructions for setting up voicemail in this article apply to Android and iPhone.
+
+A Look at Voicemail Features
+
+The voicemail feature acts similar to an answering machine. However, the main difference is that instead of storing the voice message on the answering machine, it is stored on the service provider's server, in a space reserved for the user called a mailbox.
+
+Voicemail has the same characteristics of email, except that the messages are voices instead of text. Along with recording and playing sounds back, voicemail has these additional features:
+
+Receive voicemail messages from many callers at the same time.
+
+Forward voicemail messages to other people's mailboxes.
+
+Add a voice introduction to the message you are forwarding.
+
+Broadcast voice messages to send to more than one person at the same time.
+
+Store voice messages for a long period of time.
+
+Be notified of the arrival of a voicemail through a mobile phone or pager.
+
+Present different greetings to different users.
+
+Transfer and save voice messages to storage media like a hard drive, which can also be sent as an attachment with email messages.
+

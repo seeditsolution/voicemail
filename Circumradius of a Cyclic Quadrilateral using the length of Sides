@@ -1,0 +1,42 @@
+// Java program to find circumradius of 
+// a cyclic quadrilateral using sides 
+import java.util.*; 
+
+class GFG{ 
+
+// Function to return the circumradius 
+// of a cyclic quadrilateral using sides 
+static double Circumradius(int a, int b, 
+						int c, int d) 
+{ 
+	
+	// Find semiperimeter 
+	double s = (a + b + c + d) / 2.0; 
+
+	// Calculate the radius 
+	double radius = Math.sqrt(((a * b) + (c * d)) * 
+							((a * c) + (b * d)) * 
+							((a * d) + (b * c)) / 
+							((s - a) * (s - b) * 
+							(s - c) * (s - d))); 
+
+	return radius / 4; 
+} 
+
+// Driver Code 
+public static void main(String[] args) 
+{ 
+	int A = 3; 
+	int B = 4; 
+	int C = 5; 
+	int D = 6; 
+
+	// Function call 
+	double ans = Circumradius(A, B, C, D); 
+
+	// Print the radius 
+	System.out.format("%.2f", ans); 
+} 
+} 
+
+// This code is contributed by 29AjayKumar 

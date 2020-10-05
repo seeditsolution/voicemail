@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script>
+			function largest()
+			{
+				var num1, num2, num3;
+				num1 = Number(document.getElementById("N").value);
+				num2 = Number(document.getElementById("M").value);
+				num3 = Number(document.getElementById("O").value);
+
+				if(num1>num2 && num1>num3)
+				{
+					window.alert(num1+"-is greatest");
+				}
+				else if(num2>num1 && num2>num3)
+				{
+					window.alert(num2+"-is greatst");
+				}
+				else if(num3>num1 && num3>num1)
+				{
+					window.alert(num3+"is greatest");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Calculate largest among three numbers</h1>
+		<hr color="cyan">
+		<br>
+		Enter number 1: <input type="text" id="N"></input><br>
+		Enter number 2: <input type="text" id="M"></input><br>
+		Enter number 3: <input type="text" id="O"></input><br>
+		<hr color="cyan">
+		<center><button onclick="largest()">OK</button>
+	</body>
+</html>

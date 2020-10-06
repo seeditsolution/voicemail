@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+body {
+  background-image: url("bg1.jpg");
+  background-color: #cccccc;
+}
+</style>
+</head>
+<body>
+    <p>Document Body</p>
+</body>
+</html>

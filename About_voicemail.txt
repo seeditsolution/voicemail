@@ -1,0 +1,9 @@
+Voicemail is a method of storing voice messages electronically for later retrieval by intended recipients. Callers leave short messages that are stored on digital media (or, in some older systems, on analog recording tape).
+
+Originally, voicemail was developed for telephony as a means to prevent missed calls, and also to facilitate call screening. In recent years, voicemail has become integrated with the Internet, allowing users to receive incoming messages on traditional computers as well as on tablets and mobile phones.
+
+Microsoft Exchange is a popular platform for voicemail with desktop and notebook computers. Users can play their voicemail messages either as audio (Mp3) or as text. In order to play a voicemail or read it as text, the user simply clicks on an inbox item, just as would be done with an ordinary e-mail message.
+
+One particularly interesting development is the integration of voicemail with e-mail. Google Voice, for example, can translate voice messages into text for viewing on mobile and tablet devices. Google Voice also allows free or low-cost worldwide texting. Users can set up custom greetings for various callers. Address books can be shared across multiple platforms such as e-mail, a landline phone, and a mobile phone. Google Voice and similar applications work in effect like voice-enabled e-mail in reverse.
+
+Proponents of voicemail-to-text, voice-enabled e-mail, and unified messaging assert that these applications have largely dissolved the barriers between data networks and traditional voice networks

@@ -1,0 +1,260 @@
+Basic HTML data types
+Contents
+
+Case information
+SGML basic types
+Text strings
+URIs
+Colors
+Notes on using colors
+Lengths
+Content types (MIME types)
+Language codes
+Character encodings
+Single characters
+Dates and times
+Link types
+Media descriptors
+Script data
+Style sheet data
+Frame target names
+This section of the specification describes the basic data types that may appear as an element's content or an attribute's value.
+
+For introductory information about reading the HTML DTD, please consult the SGML tutorial.
+
+6.1 Case information
+Each attribute definition includes information about the case-sensitivity of its values. The case information is presented with the following keys:
+
+CS
+The value is case-sensitive (i.e., user agents interpret "a" and "A" differently).
+CI
+The value is case-insensitive (i.e., user agents interpret "a" and "A" as the same).
+CN
+The value is not subject to case changes, e.g., because it is a number or a character from the document character set.
+CA
+The element or attribute definition itself gives case information.
+CT
+Consult the type definition for details about case-sensitivity.
+If an attribute value is a list, the keys apply to every value in the list, unless otherwise indicated.
+
+6.2 SGML basic types
+The document type definition specifies the syntax of HTML element content and attribute values using SGML tokens (e.g., PCDATA, CDATA, NAME, ID, etc.). See [ISO8879] for their full definitions. The following is a summary of key information:
+
+CDATA is a sequence of characters from the document character set and may include character entities. User agents should interpret attribute values as follows:
+Replace character entities with characters,
+Ignore line feeds,
+Replace each carriage return or tab with a single space.
+User agents may ignore leading and trailing white space in CDATA attribute values (e.g., "   myval   " may be interpreted as "myval"). Authors should not declare attribute values with leading or trailing white space.
+
+For some HTML 4 attributes with CDATA attribute values, the specification imposes further constraints on the set of legal values for the attribute that may not be expressed by the DTD.
+
+Although the STYLE and SCRIPT elements use CDATA for their data model, for these elements, CDATA must be handled differently by user agents. Markup and entities must be treated as raw text and passed to the application as is. The first occurrence of the character sequence "</" (end-tag open delimiter) is treated as terminating the end of the element's content. In valid documents, this would be the end tag for the element.
+
+ID and NAME tokens must begin with a letter ([A-Za-z]) and may be followed by any number of letters, digits ([0-9]), hyphens ("-"), underscores ("_"), colons (":"), and periods (".").
+IDREF and IDREFS are references to ID tokens defined by other attributes. IDREF is a single token and IDREFS is a space-separated list of tokens.
+NUMBER tokens must contain at least one digit ([0-9]).
+6.3 Text strings
+A number of attributes ( %Text; in the DTD) take text that is meant to be "human readable". For introductory information about attributes, please consult the tutorial discussion of attributes.
+
+6.4 URIs
+This specification uses the term URI as defined in [URI] (see also [RFC1630]).
+
+Note that URIs include URLs (as defined in [RFC1738] and [RFC1808]).
+
+Relative URIs are resolved to full URIs using a base URI. [RFC1808], section 3, defines the normative algorithm for this process. For more information about base URIs, please consult the section on base URIs in the chapter on links.
+
+URIs are represented in the DTD by the parameter entity %URI;.
+
+URIs in general are case-sensitive. There may be URIs, or parts of URIs, where case doesn't matter (e.g., machine names), but identifying these may not be easy. Users should always consider that URIs are case-sensitive (to be on the safe side).
+
+Please consult the appendix for information about non-ASCII characters in URI attribute values.
+
+6.5 Colors
+The attribute value type "color" (%Color;) refers to color definitions as specified in [SRGB]. A color value may either be a hexadecimal number (prefixed by a hash mark) or one of the following sixteen color names. The color names are case-insensitive.
+
+Color names and sRGB values
+	Black = "#000000"		Green = "#008000"
+	Silver = "#C0C0C0"		Lime = "#00FF00"
+	Gray = "#808080"		Olive = "#808000"
+	White = "#FFFFFF"		Yellow = "#FFFF00"
+	Maroon = "#800000"		Navy = "#000080"
+	Red = "#FF0000"		Blue = "#0000FF"
+	Purple = "#800080"		Teal = "#008080"
+	Fuchsia = "#FF00FF"		Aqua = "#00FFFF"
+Thus, the color values "#800080" and "Purple" both refer to the color purple.
+
+6.5.1 Notes on using colors
+Although colors can add significant amounts of information to documents and make them more readable, please consider the following guidelines when including color in your documents:
+
+The use of HTML elements and attributes for specifying color is deprecated. You are encouraged to use style sheets instead.
+Don't use color combinations that cause problems for people with color blindness in its various forms.
+If you use a background image or set the background color, then be sure to set the various text colors as well.
+Colors specified with the BODY and FONT elements and bgcolor on tables look different on different platforms (e.g., workstations, Macs, Windows, and LCD panels vs. CRTs), so you shouldn't rely entirely on a specific effect. In the future, support for the [SRGB] color model together with ICC color profiles should mitigate this problem.
+When practical, adopt common conventions to minimize user confusion.
+6.6 Lengths
+HTML specifies three types of length values for attributes:
+
+Pixels: The value (%Pixels; in the DTD) is an integer that represents the number of pixels of the canvas (screen, paper). Thus, the value "50" means fifty pixels. For normative information about the definition of a pixel, please consult [CSS1].
+Length: The value (%Length; in the DTD) may be either a %Pixel; or a percentage of the available horizontal or vertical space. Thus, the value "50%" means half of the available space.
+MultiLength: The value ( %MultiLength; in the DTD) may be a %Length; or a relative length. A relative length has the form "i*", where "i" is an integer. When allotting space among elements competing for that space, user agents allot pixel and percentage lengths first, then divide up remaining available space among relative lengths. Each relative length receives a portion of the available space that is proportional to the integer preceding the "*". The value "*" is equivalent to "1*". Thus, if 60 pixels of space are available after the user agent allots pixel and percentage space, and the competing relative lengths are 1*, 2*, and 3*, the 1* will be alloted 10 pixels, the 2* will be alloted 20 pixels, and the 3* will be alloted 30 pixels.
+Length values are case-neutral.
+
+6.7 Content types (MIME types)
+Note. A "media type" (defined in [RFC2045] and [RFC2046]) specifies the nature of a linked resource. This specification employs the term "content type" rather than "media type" in accordance with current usage. Furthermore, in this specification, "media type" may refer to the media where a user agent renders a document.
+
+This type is represented in the DTD by %ContentType;.
+
+Content types are case-insensitive.
+
+Examples of content types include "text/html", "image/png", "image/gif", "video/mpeg", "text/css", and "audio/basic". For the current list of registered MIME types, please consult [MIMETYPES].
+
+6.8 Language codes
+The value of attributes whose type is a language code ( %LanguageCode in the DTD) refers to a language code as specified by [RFC1766], section 2. For information on specifying language codes in HTML, please consult the section on language codes. Whitespace is not allowed within the language-code.
+
+Language codes are case-insensitive.
+
+6.9 Character encodings
+The "charset" attributes (%Charset in the DTD) refer to a character encoding as described in the section on character encodings. Values must be strings (e.g., "euc-jp") from the IANA registry (see [CHARSETS] for a complete list).
+
+Names of character encodings are case-insensitive.
+
+User agents must follow the steps set out in the section on specifying character encodings in order to determine the character encoding of an external resource.
+
+6.10 Single characters
+Certain attributes call for a single character from the document character set. These attributes take the %Character type in the DTD.
+
+Single characters may be specified with character references (e.g., "&amp;").
+
+6.11 Dates and times
+[ISO8601] allows many options and variations in the representation of dates and times. The current specification uses one of the formats described in the profile [DATETIME] for its definition of legal date/time strings ( %Datetime in the DTD).
+
+The format is:
+
+  YYYY-MM-DDThh:mm:ssTZD
+where:
+     YYYY = four-digit year
+     MM   = two-digit month (01=January, etc.)
+     DD   = two-digit day of month (01 through 31)
+     hh   = two digits of hour (00 through 23) (am/pm NOT allowed)
+     mm   = two digits of minute (00 through 59)
+     ss   = two digits of second (00 through 59)
+     TZD  = time zone designator
+The time zone designator is one of:
+
+Z
+indicates UTC (Coordinated Universal Time). The "Z" must be uppercase.
++hh:mm
+indicates that the time is a local time which is hh hours and mm minutes ahead of UTC.
+-hh:mm
+indicates that the time is a local time which is hh hours and mm minutes behind UTC.
+Exactly the components shown here must be present, with exactly this punctuation. Note that the "T" appears literally in the string (it must be uppercase), to indicate the beginning of the time element, as specified in [ISO8601]
+
+If a generating application does not know the time to the second, it may use the value "00" for the seconds (and minutes and hours if necessary).
+
+Note. [DATETIME] does not address the issue of leap seconds.
+
+6.12 Link types
+Authors may use the following recognized link types, listed here with their conventional interpretations. In the DTD, %LinkTypes refers to a space-separated list of link types. White space characters are not permitted within link types.
+
+These link types are case-insensitive, i.e., "Alternate" has the same meaning as "alternate".
+
+User agents, search engines, etc. may interpret these link types in a variety of ways. For example, user agents may provide access to linked documents through a navigation bar.
+
+Alternate
+Designates substitute versions for the document in which the link occurs. When used together with the lang attribute, it implies a translated version of the document. When used together with the media attribute, it implies a version designed for a different medium (or media).
+Stylesheet
+Refers to an external style sheet. See the section on external style sheets for details. This is used together with the link type "Alternate" for user-selectable alternate style sheets.
+Start
+Refers to the first document in a collection of documents. This link type tells search engines which document is considered by the author to be the starting point of the collection.
+Next
+Refers to the next document in a linear sequence of documents. User agents may choose to preload the "next" document, to reduce the perceived load time.
+Prev
+Refers to the previous document in an ordered series of documents. Some user agents also support the synonym "Previous".
+Contents
+Refers to a document serving as a table of contents. Some user agents also support the synonym ToC (from "Table of Contents").
+Index
+Refers to a document providing an index for the current document.
+Glossary
+Refers to a document providing a glossary of terms that pertain to the current document.
+Copyright
+Refers to a copyright statement for the current document.
+Chapter
+Refers to a document serving as a chapter in a collection of documents.
+Section
+Refers to a document serving as a section in a collection of documents.
+Subsection
+Refers to a document serving as a subsection in a collection of documents.
+Appendix
+Refers to a document serving as an appendix in a collection of documents.
+Help
+Refers to a document offering help (more information, links to other sources information, etc.)
+Bookmark
+Refers to a bookmark. A bookmark is a link to a key entry point within an extended document. The title attribute may be used, for example, to label the bookmark. Note that several bookmarks may be defined in each document.
+Authors may wish to define additional link types not described in this specification. If they do so, they should use a profile to cite the conventions used to define the link types. Please see the profile attribute of the HEAD element for more details.
+
+For further discussions about link types, please consult the section on links in HTML documents.
+
+6.13 Media descriptors
+The following is a list of recognized media descriptors ( %MediaDesc in the DTD).
+
+screen
+Intended for non-paged computer screens.
+tty
+Intended for media using a fixed-pitch character grid, such as teletypes, terminals, or portable devices with limited display capabilities.
+tv
+Intended for television-type devices (low resolution, color, limited scrollability).
+projection
+Intended for projectors.
+handheld
+Intended for handheld devices (small screen, monochrome, bitmapped graphics, limited bandwidth).
+print
+Intended for paged, opaque material and for documents viewed on screen in print preview mode.
+braille
+Intended for braille tactile feedback devices.
+aural
+Intended for speech synthesizers.
+all
+Suitable for all devices.
+Future versions of HTML may introduce new values and may allow parameterized values. To facilitate the introduction of these extensions, conforming user agents must be able to parse the media attribute value as follows:
+
+The value is a comma-separated list of entries. For example,
+media="screen, 3d-glasses, print and resolution > 90dpi"
+is mapped to:
+
+"screen"
+"3d-glasses"
+"print and resolution > 90dpi"
+Each entry is truncated just before the first character that isn't a US ASCII letter [a-zA-Z] (ISO 10646 hex 41-5a, 61-7a), digit [0-9] (hex 30-39), or hyphen (hex 2d). In the example, this gives:
+"screen"
+"3d-glasses"
+"print"
+A case-sensitive match is then made with the set of media types defined above. User agents may ignore entries that don't match. In the example we are left with screen and print.
+Note. Style sheets may include media-dependent variations within them (e.g., the CSS @media construct). In such cases it may be appropriate to use "media=all".
+
+6.14 Script data
+Script data ( %Script; in the DTD) can be the content of the SCRIPT element and the value of intrinsic event attributes. User agents must not evaluate script data as HTML markup but instead must pass it on as data to a script engine.
+
+The case-sensitivity of script data depends on the scripting language.
+
+Please note that script data that is element content may not contain character references, but script data that is the value of an attribute may contain them. The appendix provides further information about specifying non-HTML data.
+
+6.15 Style sheet data
+Style sheet data (%StyleSheet; in the DTD) can be the content of the STYLE element and the value of the style attribute. User agents must not evaluate style data as HTML markup.
+
+The case-sensitivity of style data depends on the style sheet language.
+
+Please note that style sheet data that is element content may not contain character references, but style sheet data that is the value of an attribute may contain them. The appendix provides further information about specifying non-HTML data.
+
+6.16 Frame target names
+Except for the reserved names listed below, frame target names (%FrameTarget; in the DTD) must begin with an alphabetic character (a-zA-Z). User agents should ignore all other target names.
+
+The following target names are reserved and have special meanings.
+
+_blank
+The user agent should load the designated document in a new, unnamed window.
+_self
+The user agent should load the document in the same frame as the element that refers to this target.
+_parent
+The user agent should load the document into the immediate FRAMESET parent of the current frame. This value is equivalent to _self if the current frame has no parent.
+_top
+The user agent should load the document into the full, original window (thus canceling all other frames). This value is equivalent to _self if the current frame has no parent.

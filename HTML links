@@ -1,0 +1,18 @@
+<!--html-lists
+      unordered lists
+      ordered lists
+      description list-->
+<html>
+     <head><title>html-lists</title>
+	 </head>
+<body>
+     <dl>
+	     <dt>INDIA</dt>
+		 <ul>
+		 <li><dd>india is a great country.</dd></li>
+	</ul> </dl>
+	
+
+
+</body>
+</html>

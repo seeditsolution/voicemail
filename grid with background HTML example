@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+      <title>grid</title>
+	  <style>
+	        *{
+			  margin:0px;
+			  padding:0px;
+			}
+			body{background-image:url("baack.jpg"); background-size:cover;}
+	        main{
+			display:grid; color:white; text-align:center;
+			grid-template-rows:80% 400% 1000% 80%;
+			grid-template-columns:repeat(3,1fr) 20%;
+			}
+			.div1{background-color:#dc5a5a7d;grid-column:1/-1;}
+			.div2{background-color:#6161b778;}
+			.div3{background-color:#00800063;}
+			.div4{background-color:#80808061;}
+			.div5{background-color:#ffc0cb70; grid-column:4/5; grid-row:2/4;}
+			.div6{background-color:#ffa5005c; grid-column:1/4;}
+			.div7{background-color:#544d4d6e; grid-column:1/-1;}
+	  </style>
+ </head>
+ <body>
+ <main>
+ <div class="div1">header</div>
+ <div class="div2">box1</div>
+ <div class="div3">box2</div>
+ <div class="div4">box3</div>
+ <div class="div5">sidebar</div>
+ <div class="div6">main</div>
+ <div class="div7">footer</div>
+ </main>
+ </body>
+</html>
